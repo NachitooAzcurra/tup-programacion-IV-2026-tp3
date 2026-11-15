@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="home">
       <header className="home-hero">
-        <h1>🚚 TransporteApp</h1>
+        <h1>🚛 Control de Vehículos</h1>
         <p className="home-subtitulo">
           Sistema de gestión de vehículos, conductores y viajes para empresas de transporte.
         </p>

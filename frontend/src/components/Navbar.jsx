@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <span className="navbar-logo">🚚 TransporteApp</span>
+      <span className="navbar-logo">🚛 Control de Vehículos</span>
       <div className="nav-enlaces">
         <NavLink to="/vehiculos" className={clase}>Vehículos</NavLink>
         <NavLink to="/conductores" className={clase}>Conductores</NavLink>

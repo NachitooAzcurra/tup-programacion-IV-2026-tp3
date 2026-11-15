@@ -3,7 +3,7 @@
 Universidad Tecnológica Nacional – Facultad Regional La Rioja
 Tecnicatura Universitaria en Programación – Programación IV
 
-Aplicación full-stack para registrar los vehículos de una empresa de transporte,
+Aplicación full-stack para el control de los vehículos de una empresa de transporte,
 sus conductores y los viajes realizados.
 
 ## Estructura
