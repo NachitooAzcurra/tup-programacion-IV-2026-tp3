@@ -24,7 +24,7 @@ const createRules = [
     .isFloat({ min: 1 }).withMessage('La capacidad de carga debe ser un número mayor a 0'),
 ];
 
-const createRules = [
+const putRules = [
   param('id').isInt({ min: 1 }).withMessage('El id debe ser un entero positivo'),
   ...createRules,
 ];
