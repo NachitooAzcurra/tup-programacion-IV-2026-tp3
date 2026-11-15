@@ -1,0 +1,101 @@
+### Pruebas de la API - Conductores (rutas protegidas con JWT)
+
+@baseUrl = http://localhost:3000/api/conductores
+@token = pegar_token_del_login_aqui
+
+### 1. Listar conductores (200)
+GET {{baseUrl}}
+Authorization: Bearer {{token}}
+
+### 2. Listar sin token (401)
+GET {{baseUrl}}
+
+### 3. Obtener conductor por id (200)
+GET {{baseUrl}}/1
+Authorization: Bearer {{token}}
+
+### 4. Obtener conductor inexistente (404)
+GET {{baseUrl}}/999
+Authorization: Bearer {{token}}
+
+### 5. Obtener con id inválido (400)
+GET {{baseUrl}}/abc
+Authorization: Bearer {{token}}
+
+### 6. Crear conductor (201)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Laura",
+  "apellido": "Martínez",
+  "numero_documento": "36987412",
+  "numero_licencia": "LIC-2026-010",
+  "fecha_alta_licencia": "2026-01-10",
+  "fecha_vencimiento_licencia": "2029-01-10"
+}
+
+### 7. Crear conductor con documento duplicado (409)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Otro",
+  "apellido": "Documento",
+  "numero_documento": "30123456",
+  "numero_licencia": "LIC-2026-011",
+  "fecha_alta_licencia": "2026-01-10",
+  "fecha_vencimiento_licencia": "2029-01-10"
+}
+
+### 8. Crear conductor con fechas inválidas (400)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Laura",
+  "apellido": "Martínez",
+  "numero_documento": "36987412",
+  "numero_licencia": "LIC-2026-010",
+  "fecha_alta_licencia": "2029-01-10",
+  "fecha_vencimiento_licencia": "2026-01-10"
+}
+
+### 9. Actualizar conductor (200)
+PUT {{baseUrl}}/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "numero_documento": "30123456",
+  "numero_licencia": "LIC-2024-001",
+  "fecha_alta_licencia": "2024-03-10",
+  "fecha_vencimiento_licencia": "2028-03-10"
+}
+
+### 10. Actualizar conductor inexistente (404)
+PUT {{baseUrl}}/999
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "numero_documento": "30123456",
+  "numero_licencia": "LIC-2024-001",
+  "fecha_alta_licencia": "2024-03-10",
+  "fecha_vencimiento_licencia": "2028-03-10"
+}
+
+### 11. Eliminar conductor sin viajes (200)
+DELETE {{baseUrl}}/3
+Authorization: Bearer {{token}}
+
+### 12. Eliminar conductor con viajes asociados (403)
+DELETE {{baseUrl}}/1
+Authorization: Bearer {{token}}

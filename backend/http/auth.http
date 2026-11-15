@@ -1,0 +1,68 @@
+### Pruebas de la API - Autenticación
+### Requiere: servidor corriendo en http://localhost:3000
+
+@baseUrl = http://localhost:3000/api/auth
+
+### 1. Registro de usuario (201)
+POST {{baseUrl}}/registro
+Content-Type: application/json
+
+{
+  "nombre": "Kevin",
+  "email": "kevin@test.com",
+  "password": "secret123"
+}
+
+### 2. Registro con email duplicado (409)
+POST {{baseUrl}}/registro
+Content-Type: application/json
+
+{
+  "nombre": "Kevin",
+  "email": "kevin@test.com",
+  "password": "secret123"
+}
+
+### 3. Registro con datos inválidos (400)
+POST {{baseUrl}}/registro
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "email": "no-es-email",
+  "password": "123"
+}
+
+### 4. Login correcto (200) - copiar el token de la respuesta
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "kevin@test.com",
+  "password": "secret123"
+}
+
+### 5. Login con contraseña incorrecta (401)
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "kevin@test.com",
+  "password": "incorrecta"
+}
+
+### 6. Login con campos vacíos (400)
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+
+### 7. Perfil del usuario autenticado (200) - pegar token real
+GET {{baseUrl}}/perfil
+Authorization: Bearer pegar_token_aqui
+
+### 8. Perfil sin token (401)
+GET {{baseUrl}}/perfil

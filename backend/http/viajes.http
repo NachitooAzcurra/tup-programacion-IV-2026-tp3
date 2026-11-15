@@ -1,0 +1,126 @@
+### Pruebas de la API - Viajes, historial y kilómetros (rutas protegidas con JWT)
+
+@baseUrl = http://localhost:3000/api/viajes
+@token = pegar_token_del_login_aqui
+
+### 1. Listar todos los viajes (200)
+GET {{baseUrl}}
+Authorization: Bearer {{token}}
+
+### 2. Listar sin token (401)
+GET {{baseUrl}}
+
+### 3. Historial de viajes por vehículo (200)
+GET {{baseUrl}}?vehiculo_id=1
+Authorization: Bearer {{token}}
+
+### 4. Historial de viajes por conductor (200)
+GET {{baseUrl}}?conductor_id=1
+Authorization: Bearer {{token}}
+
+### 5. Filtro con query inválida (400)
+GET {{baseUrl}}?vehiculo_id=abc
+Authorization: Bearer {{token}}
+
+### 6. Obtener viaje por id (200)
+GET {{baseUrl}}/1
+Authorization: Bearer {{token}}
+
+### 7. Obtener viaje inexistente (404)
+GET {{baseUrl}}/999
+Authorization: Bearer {{token}}
+
+### 8. Crear viaje (201)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 1,
+  "conductor_id": 3,
+  "fecha_salida": "2026-11-12T08:00:00",
+  "fecha_llegada": "2026-11-12T13:30:00",
+  "origen": "La Rioja",
+  "destino": "Catamarca",
+  "kilometros": 190.8,
+  "observaciones": "Entrega de insumos"
+}
+
+### 9. Crear viaje con vehículo inexistente (400)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 999,
+  "conductor_id": 1,
+  "fecha_salida": "2026-11-12T08:00:00",
+  "origen": "La Rioja",
+  "destino": "Catamarca",
+  "kilometros": 100
+}
+
+### 10. Crear viaje con datos inválidos (400)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 1,
+  "conductor_id": 1,
+  "fecha_salida": "ayer",
+  "fecha_llegada": "2020-01-01T00:00:00",
+  "origen": "",
+  "destino": "",
+  "kilometros": -10
+}
+
+### 11. Actualizar viaje (200)
+PUT {{baseUrl}}/4
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 3,
+  "conductor_id": 3,
+  "fecha_salida": "2026-11-10T09:00:00",
+  "fecha_llegada": "2026-11-10T15:00:00",
+  "origen": "La Rioja",
+  "destino": "San Juan",
+  "kilometros": 195.5,
+  "observaciones": "Viaje finalizado"
+}
+
+### 12. Actualizar viaje inexistente (404)
+PUT {{baseUrl}}/999
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehiculo_id": 1,
+  "conductor_id": 1,
+  "fecha_salida": "2026-11-12T08:00:00",
+  "origen": "La Rioja",
+  "destino": "Catamarca",
+  "kilometros": 100
+}
+
+### 13. Total de kilómetros por vehículo (200)
+GET {{baseUrl}}/kilometros/vehiculo/1
+Authorization: Bearer {{token}}
+
+### 14. Total de kilómetros por conductor (200)
+GET {{baseUrl}}/kilometros/conductor/1
+Authorization: Bearer {{token}}
+
+### 15. Total de kilómetros con id inválido (400)
+GET {{baseUrl}}/kilometros/conductor/xyz
+Authorization: Bearer {{token}}
+
+### 16. Eliminar viaje (200)
+DELETE {{baseUrl}}/4
+Authorization: Bearer {{token}}
+
+### 17. Eliminar viaje inexistente (404)
+DELETE {{baseUrl}}/999
+Authorization: Bearer {{token}}

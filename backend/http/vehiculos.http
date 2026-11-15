@@ -1,0 +1,96 @@
+### Pruebas de la API - Vehículos (rutas protegidas con JWT)
+
+@baseUrl = http://localhost:3000/api/vehiculos
+@token = pegar_token_del_login_aqui
+
+### 1. Listar vehículos (200)
+GET {{baseUrl}}
+Authorization: Bearer {{token}}
+
+### 2. Listar sin token (401)
+GET {{baseUrl}}
+
+### 3. Obtener vehículo por id (200)
+GET {{baseUrl}}/1
+Authorization: Bearer {{token}}
+
+### 4. Obtener vehículo inexistente (404)
+GET {{baseUrl}}/999
+Authorization: Bearer {{token}}
+
+### 5. Obtener con id inválido (400)
+GET {{baseUrl}}/abc
+Authorization: Bearer {{token}}
+
+### 6. Crear vehículo (201)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "Chevrolet",
+  "modelo": "S10 LT",
+  "patente": "AF777GH",
+  "anio": 2023,
+  "capacidad_carga": 1200.5
+}
+
+### 7. Crear vehículo con patente duplicada (409)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "Ford",
+  "modelo": "Ranger",
+  "patente": "AB123CD",
+  "anio": 2020,
+  "capacidad_carga": 1000
+}
+
+### 8. Crear vehículo con datos inválidos (400)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "",
+  "modelo": "S10",
+  "patente": "MAL",
+  "anio": 1750,
+  "capacidad_carga": -5
+}
+
+### 9. Actualizar vehículo (200)
+PUT {{baseUrl}}/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "Ford",
+  "modelo": "Ranger XLT",
+  "patente": "AB123CD",
+  "anio": 2022,
+  "capacidad_carga": 1150
+}
+
+### 10. Actualizar vehículo inexistente (404)
+PUT {{baseUrl}}/999
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "marca": "Ford",
+  "modelo": "Ranger",
+  "patente": "AB123CD",
+  "anio": 2022,
+  "capacidad_carga": 1100
+}
+
+### 11. Eliminar vehículo sin viajes (200)
+DELETE {{baseUrl}}/3
+Authorization: Bearer {{token}}
+
+### 12. Eliminar vehículo con viajes asociados (403)
+DELETE {{baseUrl}}/1
+Authorization: Bearer {{token}}
