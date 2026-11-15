@@ -1,0 +1,416 @@
+/* ============================================================
+   TransporteApp - CSS puro (sin librerías)
+   ============================================================ */
+
+:root {
+  --color-primario: #1d4ed8;
+  --color-primario-oscuro: #1e40af;
+  --color-peligro: #dc2626;
+  --color-fondo: #f1f5f9;
+  --color-tarjeta: #ffffff;
+  --color-texto: #0f172a;
+  --color-texto-suave: #475569;
+  --color-borde: #e2e8f0;
+  --radio: 10px;
+  --sombra: 0 1px 3px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Navegación ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primario-oscuro);
+  color: #fff;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nav-enlaces {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-enlace {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.nav-enlace:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-enlace.activo {
+  background: #fff;
+  color: var(--color-primario-oscuro);
+  font-weight: 600;
+}
+
+.nav-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Contenedores ---------- */
+.contenedor {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.pagina {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primario {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.btn-primario:hover:not(:disabled) {
+  background: var(--color-primario-oscuro);
+}
+
+.btn-secundario {
+  background: var(--color-borde);
+  color: var(--color-texto);
+}
+
+.btn-secundario:hover:not(:disabled) {
+  background: #cbd5e1;
+}
+
+.btn-peligro {
+  background: var(--color-peligro);
+  color: #fff;
+}
+
+.btn-peligro:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.btn-bloque {
+  width: 100%;
+}
+
+/* ---------- Formularios ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.campo input,
+.campo select {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 1px;
+  border-color: var(--color-primario);
+}
+
+.campo-error {
+  color: var(--color-peligro);
+  font-size: 0.8rem;
+}
+
+.form-acciones {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+/* ---------- Alertas ---------- */
+.alerta {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.92rem;
+}
+
+.alerta-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.alerta-info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+.alerta ul {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+/* ---------- Tablas ---------- */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  font-size: 0.9rem;
+}
+
+.tabla th,
+.tabla td {
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla th {
+  background: #f8fafc;
+  color: var(--color-texto-suave);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tabla tbody tr:hover {
+  background: #f8fafc;
+}
+
+.fila-activa {
+  outline: 2px solid var(--color-primario);
+  outline-offset: -2px;
+}
+
+.tabla-acciones {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tabla-vacia {
+  text-align: center;
+  color: var(--color-texto-suave);
+  padding: 1.5rem !important;
+}
+
+/* ---------- Página pública ---------- */
+.home-hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
+}
+
+.home-hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-subtitulo {
+  color: var(--color-texto-suave);
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+}
+
+.home-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.home-caracteristicas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+}
+
+.home-caracteristicas .tarjeta h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.home-caracteristicas .tarjeta p {
+  color: var(--color-texto-suave);
+  font-size: 0.92rem;
+}
+
+/* ---------- Páginas de autenticación ---------- */
+.auth-pagina {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.auth-tarjeta {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.75rem;
+}
+
+.auth-tarjeta h2 {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.auth-tarjeta .campo {
+  margin-bottom: 0.9rem;
+}
+
+.auth-pie {
+  margin-top: 1.1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+.auth-pie a {
+  color: var(--color-primario);
+  font-weight: 600;
+}
+
+/* ---------- Historial ---------- */
+.historial-tipos {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.historial-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.historial-form .campo {
+  flex: 1;
+  min-width: 260px;
+}
+
+.resumen-km {
+  margin-bottom: 1.25rem;
+}
+
+.resumen-tarjeta {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.resumen-numero {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+.resumen-detalle {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .tabla {
+    display: block;
+    overflow-x: auto;
+  }
+}
