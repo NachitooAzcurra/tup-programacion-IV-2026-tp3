@@ -7,9 +7,11 @@ export default function Home() {
   return (
     <div className="home">
       <header className="home-hero">
-        <h1>🚛 Control de Vehículos</h1>
+        <h1>Control de Vehículos</h1>
         <p className="home-subtitulo">
-          Sistema de gestión de vehículos, conductores y viajes para empresas de transporte.
+          Trabajo Práctico N.º 3 de Programación IV. Registro de vehículos, conductores y
+          viajes de una empresa de transporte, con autenticación de usuarios y totales de
+          kilómetros recorridos.
         </p>
         <div className="home-acciones">
           {autenticado ? (
@@ -31,20 +33,20 @@ export default function Home() {
 
       <section className="home-caracteristicas">
         <article className="tarjeta">
-          <h3>🚗 Vehículos</h3>
-          <p>Registrá la flota completa con marca, modelo, patente, año y capacidad de carga.</p>
+          <h3>Vehículos</h3>
+          <p>Alta, modificación y baja de la flota: marca, modelo, patente, año y capacidad de carga.</p>
         </article>
         <article className="tarjeta">
-          <h3>👨‍✈️ Conductores</h3>
-          <p>Administrá los datos personales y la licencia de cada conductor de la empresa.</p>
+          <h3>Conductores</h3>
+          <p>Datos personales de cada conductor y fechas de alta y vencimiento de su licencia.</p>
         </article>
         <article className="tarjeta">
-          <h3>🗺️ Viajes</h3>
-          <p>Asociá cada viaje a un vehículo y un conductor, con fechas, origen, destino y kilómetros.</p>
+          <h3>Viajes</h3>
+          <p>Cada viaje se registra con un vehículo, un conductor, fechas, origen, destino y kilómetros.</p>
         </article>
         <article className="tarjeta">
-          <h3>📊 Historial y kilómetros</h3>
-          <p>Consultá el historial de viajes y el total de kilómetros por vehículo o conductor.</p>
+          <h3>Historial y kilómetros</h3>
+          <p>Consulta de viajes por vehículo o conductor, con el total de kilómetros de cada uno.</p>
         </article>
       </section>
     </div>

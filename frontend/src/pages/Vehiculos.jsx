@@ -97,7 +97,7 @@ export default function Vehiculos() {
 
   return (
     <div className="pagina">
-      <h1>🚗 Vehículos</h1>
+      <h1>Vehículos</h1>
 
       <Alerta mensaje={servidor?.mensaje || servidor} detalle={servidor?.detalle} />
 

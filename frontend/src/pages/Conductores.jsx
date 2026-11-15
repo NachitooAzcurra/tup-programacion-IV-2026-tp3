@@ -99,7 +99,7 @@ export default function Conductores() {
 
   return (
     <div className="pagina">
-      <h1>👨‍✈️ Conductores</h1>
+      <h1>Conductores</h1>
 
       <Alerta mensaje={servidor?.mensaje || servidor} detalle={servidor?.detalle} />
 

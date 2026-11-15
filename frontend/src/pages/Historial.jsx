@@ -53,7 +53,7 @@ export default function Historial() {
 
   return (
     <div className="pagina">
-      <h1>📊 Historial y kilómetros</h1>
+      <h1>Historial y kilómetros</h1>
 
       <Alerta mensaje={servidor} />
 

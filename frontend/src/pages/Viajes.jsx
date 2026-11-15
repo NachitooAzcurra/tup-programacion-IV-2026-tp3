@@ -133,7 +133,7 @@ export default function Viajes() {
 
   return (
     <div className="pagina">
-      <h1>🗺️ Viajes</h1>
+      <h1>Viajes</h1>
 
       <Alerta mensaje={servidor?.mensaje || servidor} detalle={servidor?.detalle} />
 
