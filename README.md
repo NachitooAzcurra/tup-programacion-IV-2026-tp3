@@ -1,10 +1,11 @@
-# Trabajo Práctico N.º 3 – Gestión de vehículos, conductores y viajes
+# Trabajo Práctico N.º 3 – Control de Vehículos
 
 Universidad Tecnológica Nacional – Facultad Regional La Rioja
 Tecnicatura Universitaria en Programación – Programación IV
 
-Aplicación full-stack para el control de los vehículos de una empresa de transporte,
-sus conductores y los viajes realizados.
+Aplicación para el control de vehículos, conductores y viajes de una empresa
+de transporte. Cada usuario se autentica con JWT y desde el panel se administran
+los registros y el historial de kilómetros recorridos.
 
 ## Estructura
 
@@ -13,8 +14,7 @@ tp3/
 ├── backend/          API REST con Express.js + MySQL (mysql2)
 │   ├── sql/          Definiciones de las tablas (schema.sql)
 │   └── src/          Config, rutas, controladores, validaciones y middleware
-├── frontend/         SPA con Vite + React (JavaScript) y CSS puro
-└── sql               Backup del script SQL
+└── frontend/         SPA con Vite + React (JavaScript) y CSS puro
 ```
 
 ## Requisitos
